@@ -37,3 +37,35 @@ body {
         background: #ddd !important;
     }
 }
+
+/*
+ * Wrapper 
+ */
+ .app.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+ }
+
+/*
+ * Navigation 
+ */
+ .app.side.navigation {
+     height: 100vh;
+     background: rgba(3,22,52, 1);
+     
+     ul {
+         display: flex;
+         flex-direction: column;
+         list-style: none;
+         padding: 0;
+         margin: 0;
+         text-align: center;
+
+         li {
+             flex: 1;
+             background: rgba(42, 54, 59, 1);
+             padding: 0.52em 2em;
+         }
+     }
+ }

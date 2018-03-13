@@ -30,7 +30,17 @@ class App extends Component {
 
     render() {
         return (
-            <Ledger notebooks={this.state.notebooks} />
+            <div className="app wrapper">
+                <div className="app side navigation">
+                    <ul>
+                        <li>Home</li>
+                        <li>Notebooks</li>
+                        <li>Notes</li>
+                        <li>Profile</li>
+                    </ul>
+                </div>
+                <Ledger notebooks={this.state.notebooks} />
+            </div>
         )
     }
 }

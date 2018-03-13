@@ -27302,7 +27302,39 @@ var App = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(_Ledger2.default, { notebooks: this.state.notebooks });
+            return _react2.default.createElement(
+                'div',
+                { className: 'app wrapper' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'app side navigation' },
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'Home'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'Notebooks'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'Notes'
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            'Profile'
+                        )
+                    )
+                ),
+                _react2.default.createElement(_Ledger2.default, { notebooks: this.state.notebooks })
+            );
         }
     }]);
 

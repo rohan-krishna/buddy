@@ -27,3 +27,29 @@ body {
 
 .toolbar a[data-active="true"] {
   background: #ddd !important; }
+
+/*
+ * Wrapper 
+ */
+.app.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1; }
+
+/*
+ * Navigation 
+ */
+.app.side.navigation {
+  height: 100vh;
+  background: #031634; }
+  .app.side.navigation ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+    .app.side.navigation ul li {
+      flex: 1;
+      background: #2a363b;
+      padding: 0.52em 2em; }
