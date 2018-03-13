@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Djandora | {% block 'title' %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <link rel="stylesheet" href="{% static 'household/css/app.css' %}">
+
+    <script>
+        window.base_url = "{% url 'writer:index' %}";
+    </script>
 </head>
 <body class="site-wrapper">
-    <div class="ui container fluid">
-        {% block 'content' %}
-        {% endblock %}
-    </div>
+    
+    <header>
+        {% block 'headercontent' %}
+          
+        {% endblock 'headercontent' %}
+    </header>
+
+    <main>
+        <div class="ui container fluid">
+            {% block 'content' %} {% endblock %}
+        </div>
+    </main>
+    
+    <footer>
+        <script src="{% static 'household/js/build.js' %}"></script>
+         {% block 'footerscripts' %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('.ui.accordion').accordion();
+                    $('.ui.dropdown').dropdown();
+                })
+            </script>
+         {% endblock %}
+    </footer>
+    
 </body>
 </html>

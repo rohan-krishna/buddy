@@ -1,0 +1,92 @@
+{% extends "household/master.html" %}
+
+{% block 'title' %}
+  Tasks
+{% endblock 'title' %}
+
+{% block 'content' %}
+
+    <div class="ui container" style="margin-top: 1.52em;">
+        <div class="ui segment">
+            <h3>Showing All Tasks</h3>
+
+            <a href="{% url 'tasks:create' %}" class="ui icon button green">
+                <i class="icon plus"></i>
+            </a>
+        </div>
+
+        <div class="ui accordion styled fluid">
+            {% for task in todayTasks %}
+            <div class="title">
+                <div class="ui segment">
+                    <h3>
+                        <i class="icon dropdown"></i>
+                        {% if task.is_completed %}
+
+                        <span style="text-decoration: line-through;">{{ task.title }}</span>
+
+                        {% else %}
+
+                        {{ task.title }}
+
+                        {% endif %}
+                    </h3>
+                </div>
+            </div>
+            <div class="content">
+                <div class="ui segment blue">
+                    
+                    <a href="{% url 'tasks:edit' task.id %}" class="ui icon blue button">
+                        <i class="icon edit"></i>
+                    </a>
+
+                    <table class="ui celled padded table">
+                        <tr>
+                            <td>Description: </td>
+                            <td>{{ task.description }}</td>
+                        </tr>
+                        <tr>
+                            <td>Created At: </td>
+                            <td>
+                                {{ task.created_at }}
+                                <strong>({{ task.created_at | timesince }} ago)</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Last Updated At: </td>
+                            <td>
+                                {{ task.updated_at }}
+                                <strong>( {{ task.updated_at | timesince }} ago)</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Status: </td>
+                            <td>
+                                {% if task.is_completed %}
+                                <div class="ui label green">
+                                    <i class="icon check"></i>
+                                    Completed
+                                </div>
+                                {% else %}
+                                <div class="ui label yellow">
+                                    ...
+                                    In-Progress
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- .content -->
+            {% endfor %}
+
+
+            <div id="reactApp"></div>
+            <!-- /#reactApp -->
+
+        </div>
+    </div>
+
+
+{% endblock 'content' %}

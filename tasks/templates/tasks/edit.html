@@ -1,0 +1,28 @@
+{% extends "household/master.html" %}
+
+{% block 'content' %}
+
+    <div class="ui container">
+
+        <div class="ui segment" style="margin-top:1.52em">
+            <h3>Edit {{ task.title }}'s Details</h3>
+        </div>
+
+        <div class="ui segment blue">
+            <form class="ui form" action="{% url 'tasks:update' task.id %}" method="post">
+                {% csrf_token %}
+                 {% for field in form %}
+                    <div class="field">
+                        {{ field.label_tag }} {{ field }}
+                        <div class="ui message error">
+                            {{ field.errors }}
+                        </div>
+                    </div>
+                {% endfor %}
+                <button type="submit" class="ui button blue">Update</button>
+            </form>
+        </div>
+        <!-- /.ui segment blue -->
+    </div>
+
+{% endblock 'content' %}

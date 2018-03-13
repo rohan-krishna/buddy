@@ -1,0 +1,46 @@
+{% extends "household/master.html" %}
+
+{% block 'title' %}
+  Add New Task
+{% endblock 'title' %}
+
+{% block 'content' %}
+  
+<div class="ui container">
+    <div class="ui segment" style="margin-top:1.52em">
+        Add New Task
+    </div>
+
+     {% if error_message %}
+        <div class="ui message error">
+            <strong>{{ error_message }}</strong>
+        </div>
+    {% endif %}
+    
+    <div class="ui segment green">
+        <h3>Create A New Task Form</h3>
+        <form action="{% url 'tasks:store' %}" class="ui form" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <label for="">Task Title: </label>
+                <input type="text" name="title">
+            </div>
+            <div class="field">
+                <label for="description">Task Description: </label>
+                <textarea name="description"></textarea>
+            </div>
+            <div class="field">
+                <label for="">Is Completed? </label>
+                <input type="checkbox" name="is_completed">
+            </div>
+            <div class="field">
+                <button type="submit" class="ui button green">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock 'content' %}.ui.segment[style=margin-top:1.52em]
