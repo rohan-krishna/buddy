@@ -31,12 +31,24 @@ class App extends Component {
     render() {
         return (
             <div className="app wrapper">
+                
                 <div className="app side navigation">
+                    <span className="logo">
+                        <h3>Führer Kumpel</h3>
+                    </span>
                     <ul>
-                        <li>Home</li>
-                        <li>Notebooks</li>
-                        <li>Notes</li>
-                        <li>Profile</li>
+                        <li>
+                            <a href="">Home</a>
+                        </li>
+                        <li>
+                            <a href="">Notebooks</a>
+                        </li>
+                        <li>
+                            <a href="">Notes</a>
+                        </li>
+                        <li>
+                            <a href="">Profile</a>
+                        </li>
                     </ul>
                 </div>
                 <Ledger notebooks={this.state.notebooks} />

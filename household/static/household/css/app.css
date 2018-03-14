@@ -1,4 +1,7 @@
 /*
+ * Variables
+*/
+/*
 */
 body {
   background: #f2f2f2; }
@@ -40,10 +43,15 @@ body {
  * Navigation 
  */
 .app.side.navigation {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  background: #031634; }
+  background: #b71513; }
+  .app.side.navigation .logo {
+    text-align: center;
+    color: #fff;
+    padding: 1.52em; }
   .app.side.navigation ul {
-    display: flex;
     flex-direction: column;
     list-style: none;
     padding: 0;
@@ -51,5 +59,40 @@ body {
     text-align: center; }
     .app.side.navigation ul li {
       flex: 1;
-      background: #2a363b;
-      padding: 0.52em 2em; }
+      padding: 0.52em 2em;
+      color: #f2f2f2;
+      font-weight: 800; }
+      .app.side.navigation ul li a {
+        text-decoration: none;
+        color: inherit; }
+      .app.side.navigation ul li:first-child {
+        border-left: 6px solid #000;
+        background: #d50000; }
+
+.notespanel {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  height: 100vh; }
+  .notespanel .noteslogo {
+    padding: 1.52em;
+    color: #fff; }
+  .notespanel ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    max-height: 100vh;
+    overflow-y: scroll; }
+    .notespanel ul li {
+      flex: 1;
+      padding: 0.52em 2em;
+      color: #f2f2f2;
+      font-weight: 800; }
+      .notespanel ul li a {
+        text-decoration: none;
+        color: inherit; }
+      .notespanel ul li:first-child {
+        border-left: 6px solid #fff;
+        background: #333; }

@@ -89,6 +89,7 @@ export default class Writer extends Component {
     onChange = ({ value }) => {
 
         // Check to see if the document has changed before saving.
+        // Wrap this under a new function and debounce this.
         if (value.document != this.state.value.document) {
             const content = JSON.stringify(value.toJSON())
             localStorage.setItem('content', content)

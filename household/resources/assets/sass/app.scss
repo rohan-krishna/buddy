@@ -1,4 +1,9 @@
 /*
+ * Variables
+*/
+$fuhrer-red: rgba(183, 21, 19,1);
+
+/*
 */
 body {
     background: #f2f2f2;
@@ -51,11 +56,18 @@ body {
  * Navigation 
  */
  .app.side.navigation {
+     display: flex;
+     flex-direction: column;
      height: 100vh;
-     background: rgba(3,22,52, 1);
+     background: $fuhrer-red;
+
+     .logo {
+         text-align: center;
+         color: #fff;
+         padding: 1.52em;
+     }
      
      ul {
-         display: flex;
          flex-direction: column;
          list-style: none;
          padding: 0;
@@ -64,8 +76,56 @@ body {
 
          li {
              flex: 1;
-             background: rgba(42, 54, 59, 1);
              padding: 0.52em 2em;
+             color: #f2f2f2;
+             font-weight: 800;
+
+             a {
+                 text-decoration: none;
+                 color: inherit;
+             }
+
+             &:first-child {
+                 border-left: 6px solid #000;
+                 background: #d50000;
+             }
          }
+     }
+ }
+
+ .notespanel {
+     display: flex;
+     flex-direction: column;
+     background: #000;
+     height: 100vh;
+
+     .noteslogo {
+         padding: 1.52em;
+         color: #fff;
+     }
+
+     ul {
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        max-height: 100vh;
+        overflow-y: scroll;
+
+        li {
+            flex: 1;
+            padding: 0.52em 2em;
+            color: #f2f2f2;
+            font-weight: 800;
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            &:first-child {
+                border-left: 6px solid #fff;
+                background: #333;
+            }
+        }
      }
  }

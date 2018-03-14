@@ -27309,27 +27309,52 @@ var App = function (_Component) {
                     'div',
                     { className: 'app side navigation' },
                     _react2.default.createElement(
+                        'span',
+                        { className: 'logo' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'F\xFChrer Kumpel'
+                        )
+                    ),
+                    _react2.default.createElement(
                         'ul',
                         null,
                         _react2.default.createElement(
                             'li',
                             null,
-                            'Home'
+                            _react2.default.createElement(
+                                'a',
+                                { href: '' },
+                                'Home'
+                            )
                         ),
                         _react2.default.createElement(
                             'li',
                             null,
-                            'Notebooks'
+                            _react2.default.createElement(
+                                'a',
+                                { href: '' },
+                                'Notebooks'
+                            )
                         ),
                         _react2.default.createElement(
                             'li',
                             null,
-                            'Notes'
+                            _react2.default.createElement(
+                                'a',
+                                { href: '' },
+                                'Notes'
+                            )
                         ),
                         _react2.default.createElement(
                             'li',
                             null,
-                            'Profile'
+                            _react2.default.createElement(
+                                'a',
+                                { href: '' },
+                                'Profile'
+                            )
                         )
                     )
                 ),
@@ -44733,6 +44758,7 @@ var _initialiseProps = function _initialiseProps() {
 
 
         // Check to see if the document has changed before saving.
+        // Wrap this under a new function and debounce this.
         if (value.document != _this2.state.value.document) {
             var content = JSON.stringify(value.toJSON());
             localStorage.setItem('content', content);
@@ -51398,7 +51424,11 @@ var Ledger = function (_React$Component) {
                 return _react2.default.createElement(
                     'li',
                     { key: notebook.id },
-                    notebook.title
+                    _react2.default.createElement(
+                        'a',
+                        { href: '' },
+                        notebook.title
+                    )
                 );
             });
 
@@ -51406,9 +51436,39 @@ var Ledger = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'ul',
-                    null,
-                    notebooks
+                    'div',
+                    { className: 'notespanel' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'noteslogo' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'Notes'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks,
+                        notebooks
+                    )
                 )
             );
         }
