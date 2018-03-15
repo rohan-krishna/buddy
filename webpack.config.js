@@ -5,6 +5,7 @@ var CSS_BUILD_DIR = path.resolve(__dirname,'household/static/household/css');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var WebpackNotifierPlugin = require('webpack-notifier');
+var webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -24,16 +25,6 @@ module.exports = {
                 })
             },
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-            {
-                test: /\.(png|jp(e*)g|svg)$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 8000, // Convert images < 8kb to base64 strings
-                        name: 'images/[hash]-[name].[ext]'
-                    }
-                }]
-            }
         ]
     },
     plugins: [
@@ -41,6 +32,10 @@ module.exports = {
             filename: '../css/app.css',
             allChunks: true
         }),
-        new WebpackNotifierPlugin()
+        new WebpackNotifierPlugin(),
+        new webpack.ProvidePlugin({
+            $:'jquery',
+            jQuery: 'jquery'
+        })
     ]
 }

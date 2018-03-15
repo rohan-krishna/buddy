@@ -4,13 +4,11 @@
 
 require('./bootstrap')
 
-
-
 import React, { Component } from 'react';
 import ReactDOM, { render } from 'react-dom';
 import Writer from './components/Writer';
 import Ledger from './components/Ledger';
-import logoImage from '../images/logo.png';
+import axios from 'axios';
 
 
 class App extends Component {
