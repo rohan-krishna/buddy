@@ -21,7 +21,7 @@ const DEFAULT_NODE = 'paragraph'
 
 const existingValue = JSON.parse(localStorage.getItem('content'))
 // Create our initial value...
-const initialValue = Value.fromJSON(existingValue) || Value.fromJSON({
+const initialValue = Value.fromJSON({
     document: {
         nodes: [
             {

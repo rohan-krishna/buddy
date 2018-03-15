@@ -20,6 +20,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
 
 # Create your views here.
+@login_required
 def index(request):
     return render(request, 'writer/index.html', {})
 
