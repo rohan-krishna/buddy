@@ -5,25 +5,26 @@
 require('./bootstrap')
 
 
+
 import React, { Component } from 'react';
 import ReactDOM, { render } from 'react-dom';
 import Writer from './components/Writer';
 import Ledger from './components/Ledger';
+import logoImage from '../images/logo.png';
 
 
 class App extends Component {
 
     state = {
-        notebooks : [],
         notes: [],
         currentlySelectedNotebook: {},
         currentlySelectedNote: {}
     }
 
     componentDidMount() {
-        axios.get( base_url + 'notebooks')
+        axios.get( base_url + 'notes')
             .then( (res) => {
-                this.setState({ notebooks : res.data })
+                this.setState({ notes : res.data })
                 console.log(res.data)
             })
     }
@@ -34,7 +35,8 @@ class App extends Component {
                 
                 <div className="app side navigation">
                     <span className="logo">
-                        <h3>Führer Kumpel</h3>
+                        <h3>Reichstagung</h3>
+                        <img src={"/static/images/reichstagung.svg"} alt="" width="128" draggable="false" />
                     </span>
                     <ul>
                         <li>
@@ -51,7 +53,8 @@ class App extends Component {
                         </li>
                     </ul>
                 </div>
-                <Ledger notebooks={this.state.notebooks} />
+                <Ledger notebooks={this.state.notes} />
+                <Writer></Writer>
             </div>
         )
     }

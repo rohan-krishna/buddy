@@ -14,9 +14,9 @@ class Notebook(models.Model):
 
 class Note(models.Model):
     title = models.CharField(max_length=255, null=True)
+    notebook = models.ForeignKey(Notebook, on_delete=models.CASCADE, related_name='notes')
     body = models.TextField(null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    notebook = models.ForeignKey(Notebook, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

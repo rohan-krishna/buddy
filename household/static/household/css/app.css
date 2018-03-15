@@ -37,62 +37,61 @@ body {
 .app.wrapper {
   display: flex;
   flex-direction: row;
-  flex: 1; }
-
-/*
- * Navigation 
- */
-.app.side.navigation {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: #b71513; }
-  .app.side.navigation .logo {
-    text-align: center;
-    color: #fff;
+  /*
+     * Navigation 
+     */ }
+  .app.wrapper .app.side.navigation {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #b71513; }
+    .app.wrapper .app.side.navigation .logo {
+      text-align: center;
+      color: #000;
+      padding: 1.52em; }
+    .app.wrapper .app.side.navigation ul {
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center; }
+      .app.wrapper .app.side.navigation ul li {
+        flex: 1;
+        padding: 0.52em 2em;
+        color: #f2f2f2;
+        font-weight: 800; }
+        .app.wrapper .app.side.navigation ul li a {
+          text-decoration: none;
+          color: inherit; }
+        .app.wrapper .app.side.navigation ul li:first-child {
+          border-left: 6px solid #000;
+          background: #d50000; }
+  .app.wrapper .noteswrapper .notespanel {
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    height: 100vh; }
+    .app.wrapper .noteswrapper .notespanel .noteslogo {
+      padding: 1.52em;
+      color: #fff;
+      text-align: center; }
+    .app.wrapper .noteswrapper .notespanel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 100vh;
+      overflow-y: scroll; }
+      .app.wrapper .noteswrapper .notespanel ul li {
+        flex: 1;
+        padding: 0.52em 2em;
+        color: #f2f2f2;
+        font-weight: 800; }
+        .app.wrapper .noteswrapper .notespanel ul li a {
+          text-decoration: none;
+          color: inherit; }
+        .app.wrapper .noteswrapper .notespanel ul li:first-child {
+          border-left: 6px solid #fff;
+          background: #333; }
+  .app.wrapper .noteswriter {
+    flex: 1;
     padding: 1.52em; }
-  .app.side.navigation ul {
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center; }
-    .app.side.navigation ul li {
-      flex: 1;
-      padding: 0.52em 2em;
-      color: #f2f2f2;
-      font-weight: 800; }
-      .app.side.navigation ul li a {
-        text-decoration: none;
-        color: inherit; }
-      .app.side.navigation ul li:first-child {
-        border-left: 6px solid #000;
-        background: #d50000; }
-
-.notespanel {
-  display: flex;
-  flex-direction: column;
-  background: #000;
-  height: 100vh; }
-  .notespanel .noteslogo {
-    padding: 1.52em;
-    color: #fff; }
-  .notespanel ul {
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    max-height: 100vh;
-    overflow-y: scroll; }
-    .notespanel ul li {
-      flex: 1;
-      padding: 0.52em 2em;
-      color: #f2f2f2;
-      font-weight: 800; }
-      .notespanel ul li a {
-        text-decoration: none;
-        color: inherit; }
-      .notespanel ul li:first-child {
-        border-left: 6px solid #fff;
-        background: #333; }

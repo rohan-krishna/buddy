@@ -96,7 +96,7 @@ export default class Writer extends Component {
             console.log(content)
         }
 
-        this.setState({ value })
+        this.setState({ value }) 
 
     }
 
@@ -280,8 +280,10 @@ export default class Writer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="noteswriter">
                 
+                <h3>Note Title</h3>
+
                 {this.renderToolbar()}
 
                 <div className="editor-wrapper">

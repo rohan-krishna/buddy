@@ -5,5 +5,6 @@ app_name = 'writer'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('notebooks/', views.getallnotebooks, name='notebooks')
+    path('notebooks/', views.getallnotebooks, name='notebooks'),
+    path('notes/', views.getallnotes, name='notes'),
 ]

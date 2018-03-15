@@ -25,10 +25,16 @@ def index(request):
 
 @login_required
 @api_view(['GET'])
-@authentication_classes((SessionAuthentication, BasicAuthentication))
 def getallnotebooks(request):
-    notebooks = Notebook.objects.all()
+    notebooks = request.user.notebook_set.all()
     serializer = NotebookSerializer(notebooks, many=True)
+    return Response(serializer.data)
+
+@login_required
+@api_view(['GET'])
+def getallnotes(request):
+    notes = request.user.note_set.all()
+    serializer = NoteSerializer(notes, many=True)
     return Response(serializer.data)
     
 
