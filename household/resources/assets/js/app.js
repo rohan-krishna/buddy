@@ -15,6 +15,7 @@ class App extends Component {
 
     state = {
         notes: [],
+        notebooks: [],
         currentlySelectedNotebook: {},
         currentlySelectedNote: {}
     }
@@ -23,7 +24,7 @@ class App extends Component {
         axios.get( base_url + 'notes')
             .then( (res) => {
                 this.setState({ notes : res.data })
-                console.log(res.data)
+                // console.log(res.data)
             })
     }
 
@@ -52,7 +53,7 @@ class App extends Component {
                     </ul>
                 </div>
                 <Ledger notebooks={this.state.notes} />
-                <Writer></Writer>
+                <Writer notes={this.state.notes}></Writer> 
             </div>
         )
     }

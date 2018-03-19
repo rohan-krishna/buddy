@@ -72,8 +72,9 @@ const initialValue = Value.fromJSON({
 export default class Writer extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = { value : initialValue }
+        this.saveNote = _.debounce(this.saveNote, 1000);
     }
 
     hasMark = type => {
@@ -86,14 +87,27 @@ export default class Writer extends Component {
         return value.blocks.some(node => node.type == type)
     }
 
+    saveNote(content) {
+        // localStorage.setItem('content', content)
+        // console.log(content)
+
+        console.log(this.props.notes)
+
+        const firstNote = this.props.notes[0];
+
+        axios.put(base_url + 'notes/' + firstNote.id , {
+            note: content,
+            notebook : 3
+        })
+    }
+
     onChange = ({ value }) => {
 
         // Check to see if the document has changed before saving.
         // Wrap this under a new function and debounce this.
         if (value.document != this.state.value.document) {
             const content = JSON.stringify(value.toJSON())
-            localStorage.setItem('content', content)
-            console.log(content)
+            this.saveNote(content);
         }
 
         this.setState({ value }) 

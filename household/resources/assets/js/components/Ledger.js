@@ -26,7 +26,7 @@ export default class Ledger extends React.Component {
                         <img src={"/static/images/list.svg"} alt="" width="68" draggable="false" />
                     </span>
                     <ul>
-                        {notebooks}
+                        {notebooks} 
                     </ul>
                 </div>
             </div>

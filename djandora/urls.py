@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from writer import views as writer_views
+
+user_list = writer_views.UserViewSet.as_view({
+    'get':'list'
+})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tasks/', include('tasks.urls')),
     path('writer/', include('writer.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('login/', auth_views.login, name='login')
+    path('login/', auth_views.login, name='login'),
+    path('api/users', user_list)
 ]
