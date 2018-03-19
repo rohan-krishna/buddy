@@ -5,7 +5,7 @@ import { isKeyHotkey } from 'is-hotkey';
 
 
 /**
- * Define Default Hotkey
+ * Define Default Node
  */
 
 const DEFAULT_NODE = 'paragraph'
@@ -42,40 +42,17 @@ const initialValue = Value.fromJSON({
     },
 })
 
-// const MarkHotkey = (options) => {
-//     const { type, key } = options
-
-//     // Return our "plugin" object, containing the `onKeyDown` handler.
-//     return {
-//         onKeyDown(event, change) {
-//             // Check that the key pressed matches our `key` option.
-//             if (event.ctrlKey && event.key == key) {
-//                 // Prevent the default characters from being inserted.
-//                 event.preventDefault()
-
-//                 // Toggle the mark `type`.
-//                 change.toggleMark(type)
-//                 return true
-//             }
-        
-//         },
-//     }
-// }
-
-// const boldPlugin = MarkHotkey({
-//     type: 'bold',
-//     key: 'b',
-// })
-
-// const plugins = [boldPlugin]
-
 export default class Writer extends Component {
 
+    // initialValue = Value.fromJSON(JSON.parse(this.props.currentlySelectedNote.body))
+
+    
     constructor(props) {
         super(props);
         this.state = { value : initialValue }
         this.saveNote = _.debounce(this.saveNote, 1000);
     }
+
 
     hasMark = type => {
         const { value } = this.state
@@ -241,6 +218,10 @@ export default class Writer extends Component {
     }
 
     renderEditor = () => {
+
+        const currentlySelectedNote = this.props.currentlySelectedNote;
+        // const noteBody = Value.fromJSON(JSON.parse(currentlySelectedNote.body))
+
         return (
             <div className="editor">
                 <Editor
@@ -293,6 +274,7 @@ export default class Writer extends Component {
     }
 
     render() {
+
         return (
             <div className="noteswriter">
                 

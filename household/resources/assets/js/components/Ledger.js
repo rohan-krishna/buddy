@@ -10,10 +10,10 @@ export default class Ledger extends React.Component {
 
     render() {
 
-        const notebooks = this.props.notebooks.map( notebook => 
-            <li key={notebook.id}>
+        const notes = this.props.notes.map( note => 
+            <li key={note.id}>
                 <a href="">
-                    {notebook.title}
+                    {note.title}
                 </a>
             </li>
         )
@@ -26,7 +26,7 @@ export default class Ledger extends React.Component {
                         <img src={"/static/images/list.svg"} alt="" width="68" draggable="false" />
                     </span>
                     <ul>
-                        {notebooks} 
+                        {notes} 
                     </ul>
                 </div>
             </div>

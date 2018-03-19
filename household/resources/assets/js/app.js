@@ -24,8 +24,12 @@ class App extends Component {
         axios.get( base_url + 'notes')
             .then( (res) => {
                 this.setState({ notes : res.data })
-                // console.log(res.data)
+                this.setState({ currentlySelectedNote : this.state.notes[0]})
             })
+    }
+
+    saveNote() {
+        console.log("The parent component is now handling this!")
     }
 
     render() {
@@ -52,8 +56,8 @@ class App extends Component {
                         </li>
                     </ul>
                 </div>
-                <Ledger notebooks={this.state.notes} />
-                <Writer notes={this.state.notes}></Writer> 
+                <Ledger notes={this.state.notes} />
+                <Writer notes={this.state.notes} currentlySelectedNote={this.state.currentlySelectedNote} /> 
             </div>
         )
     }
